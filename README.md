@@ -77,8 +77,8 @@ Each user role has specific permissions within the application.
 Below are the login credentials for each role:
   #### Predefined Users:
 1. **User**:
-  * **Username**: `user`
-  * **Password**: `user1`
+  * **Username**: `jenya`
+  * **Password**: `jenya1`
 2. **Manager**:
   * **Username**: `manager`
   * **Password**: `manager1`

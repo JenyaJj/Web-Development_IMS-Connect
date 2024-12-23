@@ -1,0 +1,58 @@
+.login-page {
+  padding: 60px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.login-page h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 1s ease-out;
+}
+
+.login-form input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form button {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+  transform: scale(1.05);
+}
+
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

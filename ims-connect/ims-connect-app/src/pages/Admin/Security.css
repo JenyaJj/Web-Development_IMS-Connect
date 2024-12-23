@@ -1,0 +1,58 @@
+.security-page {
+    padding: 60px;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .security-page h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+  
+.security-card {
+  display: flex; /* Flexbox для выравнивания кнопок */
+  justify-content: center; /* Центровка кнопок */
+  gap: 40px; /* Промежуток между кнопками */
+  opacity: 0; /* Исходное состояние для плавного появления */
+  animation: fadeInUp 1s 0.3s forwards; /* Применение анимации */
+  padding: 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.security-card button {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+  padding: 30px 280px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.security-card button:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+  transform: scale(1.05);
+}
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  

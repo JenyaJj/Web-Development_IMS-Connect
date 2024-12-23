@@ -1,0 +1,123 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+    background-color: #121212; /* Dark background */
+    color: #fff; /* Light text */
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    border-bottom: 1px solid #333;
+    animation: slideIn 0.6s ease-out;
+  }
+/* Navbar title */
+.navbar h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #f4f4f4;
+  letter-spacing: 1px;
+  margin: 0;
+  position: relative; /* Для правильного позиционирования псевдоэлемента */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Плавное изменение цвета текста */
+}
+
+/* Псевдоэлемент для полоски */
+.navbar h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Расстояние от текста до линии */
+  width: 0; /* Начальная ширина полоски */
+  height: 2px; /* Толщина полоски */
+  background-color: #fff; /* Цвет полоски */
+  transition: width 0.3s ease; /* Плавное расширение полоски */
+}
+
+
+.navbar h1:hover::after {
+  width: 100%; /* Полоска занимает всю ширину текста */
+}
+
+
+
+  /* Navigation links container */
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  /* Link styling */
+  .nav-links a {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Псевдоэлемент для полоски */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Расстояние от текста до линии */
+  width: 0; /* Начальная ширина полоски */
+  height: 1px; /* Толщина полоски */
+  background-color: #fff; /* Цвет полоски */
+  transition: width 0.3s ease; /* Плавное расширение полоски */
+}
+
+
+.nav-links a:hover::after {
+  width: 100%; /* Полоска занимает всю ширину текста */
+}
+
+  /* Logout button */
+  .logout-button {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #b0b0b0;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+
+  .logout-button:hover {
+    background-color: #eaeaea;
+    color: #070707;
+    border-color: #d0c6c6;
+    transform: scale(1.05);
+  }
+  
+  /* Animations */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

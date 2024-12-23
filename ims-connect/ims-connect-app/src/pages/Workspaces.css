@@ -1,0 +1,83 @@
+.workspaces-page {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 1s ease-out;
+}
+
+.workspaces-page h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  color: #333;
+  text-align: center;
+}
+
+.workspace-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.workspace-card {
+  display: flex;
+  flex-direction: column; /* Вертикальное расположение элементов */
+  justify-content: space-between; /* Разделяем контент и кнопки */
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-out;
+}
+
+.workspace-card-content {
+  flex-grow: 1; /* Контент растягивается, оставляя кнопки внизу */
+}
+
+.workspace-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.workspace-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.workspace-card p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+.workspace-card button {
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.workspace-card button:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

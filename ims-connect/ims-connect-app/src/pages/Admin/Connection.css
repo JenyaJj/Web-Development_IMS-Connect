@@ -1,0 +1,70 @@
+.connection-page {
+    padding: 60px;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .connection-page h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+  
+  .connection-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    opacity: 0;
+    animation: fadeInUp 1s 0.3s forwards;
+  }
+  
+  .connection-card {
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .connection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .connection-card button {
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+  
+  .connection-card button:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+    transform: scale(1.05);
+  }  
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  

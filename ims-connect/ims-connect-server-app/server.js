@@ -7,7 +7,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-    origin: 'https://ims-connect-app.vercel.app', // замените на URL вашего клиента
+    origin: 'https://web-development-ims-connect.vercel.app', // замените на URL вашего клиента
     credentials: true
   }));
   app.use(bodyParser.json());

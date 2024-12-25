@@ -7,9 +7,11 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-    origin: 'https://web-development-ims-connect.vercel.app', // замените на URL вашего клиента
+    origin: 'https://web-development-ims-connect.vercel.app', // URL вашего клиента
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Разрешенные методы
+    allowedHeaders: ['Content-Type', 'Authorization'], // Разрешенные заголовки
     credentials: true
-  }));
+}));
   app.use(bodyParser.json());
   
   // Обработчик для корневого маршрута

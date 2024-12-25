@@ -33,7 +33,7 @@ const UserProfile = () => {
 
   const handleSave = async () => {
     try {
-      const response = await axios.put("http://localhost:5000/update-user", {
+      const response = await axios.put("https://ims-connect-server.onrender.com/update-user", {
         id: user.id,
         email: formData.email,
         contact: formData.contact,

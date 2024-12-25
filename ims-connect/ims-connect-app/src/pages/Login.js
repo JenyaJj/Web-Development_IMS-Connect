@@ -13,7 +13,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://ims-connect-server-app.vercel.app/login', {
+            const response = await axios.post('https://ims-connect-server.onrender.com/login', {
                 username,
                 password,
             });

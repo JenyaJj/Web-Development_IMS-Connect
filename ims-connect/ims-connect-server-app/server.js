@@ -9,6 +9,7 @@ const port = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
+
 // Database setup
 const db = new sqlite3.Database('./users.db', (err) => {
     if (err) {

@@ -22,7 +22,8 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/signup', formData);
+            //await axios.post('http://localhost:5000/signup', formData);
+            await axios.post('https://ims-connect-server-app.vercel.app/signup', formData);
             setNotification('User registered successfully!');
             setTimeout(() => setNotification(''), 3000); 
 

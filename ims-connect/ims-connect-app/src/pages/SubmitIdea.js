@@ -23,7 +23,7 @@ const SubmitIdea = () => {
     formData.append("attachment", idea.attachment);
 
     try {
-      const response = await fetch("http://localhost:5000/ideas", {
+      const response = await fetch("https://ims-connect-server-app.vercel.app/ideas", {
         method: "POST",
         body: JSON.stringify({
           title: idea.title,

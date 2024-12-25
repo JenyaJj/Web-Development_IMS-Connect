@@ -10,7 +10,7 @@ const IdeaList = () => {
   const [ideas, setIdeas] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/ideas")
+    fetch("https://ims-connect-server-app.vercel.app/ideas")
       .then((res) => res.json())
       .then((data) => setIdeas(data))
       .catch((err) => console.error("Error fetching ideas:", err));

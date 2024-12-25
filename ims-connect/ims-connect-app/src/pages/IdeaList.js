@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Notification from "./Notification"; 
 import "./IdeaList.css";
@@ -7,12 +7,14 @@ const IdeaList = () => {
   const navigate = useNavigate();
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   const [notification, setNotification] = useState("");
+  const [ideas, setIdeas] = useState([]);
 
-  const [ideas, setIdeas] = useState([
-    { id: 1, title: "Eco-Friendly Packaging", votes: 120 },
-    { id: 2, title: "Renewable Energy Solutions", votes: 95 },
-    { id: 3, title: "AI-Driven Waste Management", votes: 68 },
-  ]);
+  useEffect(() => {
+    fetch("http://localhost:5000/ideas")
+      .then((res) => res.json())
+      .then((data) => setIdeas(data))
+      .catch((err) => console.error("Error fetching ideas:", err));
+  }, []);
 
   const handleVote = (id) => {
     const updatedIdeas = ideas.map((idea) =>

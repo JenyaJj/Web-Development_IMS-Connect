@@ -8,9 +8,9 @@ import Dashboard from "./pages/Dashboard";
 import SubmitIdea from "./pages/SubmitIdea";
 import Workspaces from "./pages/Workspaces";
 import IdeaList from "./pages/IdeaList";
-import Security from "./pages/Admin/Security";
-import UserRoles from "./pages/Admin/UserRoles";
-import Connection from "./pages/Admin/Connection";
+import Security from "./pages/Security";
+import UserRoles from "./pages/UserRoles";
+import Connection from "./pages/Connection";
 import CollaborationWorkspace from "./pages/CollaborationWorkspace";
 
 function App() {

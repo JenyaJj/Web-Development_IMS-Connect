@@ -15,11 +15,36 @@ const SubmitIdea = () => {
     setIdea({ ...idea, attachment: e.target.files[0] });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting idea", idea);
-    setMessage("Submitted successfully!");
-    setIdea({ title: "", description: "", attachment: null });
+    const formData = new FormData();
+    formData.append("title", idea.title);
+    formData.append("description", idea.description);
+    formData.append("attachment", idea.attachment);
+
+    try {
+      const response = await fetch("http://localhost:5000/ideas", {
+        method: "POST",
+        body: JSON.stringify({
+          title: idea.title,
+          description: idea.description,
+          attachment: idea.attachment ? idea.attachment.name : null,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setMessage("Submitted successfully!");
+        setIdea({ title: "", description: "", attachment: null });
+      } else {
+        setMessage("Error submitting idea");
+      }
+    } catch (error) {
+      setMessage("Error submitting idea");
+    }
+
     setTimeout(() => setMessage(""), 3000);
   };
 

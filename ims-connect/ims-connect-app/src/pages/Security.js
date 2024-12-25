@@ -1,5 +1,5 @@
 import React, { useState } from "react"; 
-import Notification from "../Notification"; 
+import Notification from "./Notification"; 
 import "./Security.css";
 
 const Security = () => {

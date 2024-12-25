@@ -14,6 +14,7 @@ const db = new sqlite3.Database('./users.db', (err) => {
     if (err) {
         console.error('Error opening database', err.message);
     } else {
+        // Create users table if it doesn't exist
         db.run(`
             CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,13 +28,46 @@ const db = new sqlite3.Database('./users.db', (err) => {
             )
         `, (err) => {
             if (err) {
-                console.error('Error creating table', err.message);
+                console.error('Error creating users table', err.message);
+            }
+        });
+
+        // Create ideas table if it doesn't exist
+        db.run(`
+            CREATE TABLE IF NOT EXISTS ideas (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT,
+                description TEXT,
+                attachment TEXT,
+                votes INTEGER DEFAULT 0
+            )
+        `, (err) => {
+            if (err) {
+                console.error('Error creating ideas table', err.message);
+            } else {
+                // Populate ideas table with initial data
+                const ideas = [
+                    ['Renewable Energy Solutions', 'Exploring innovative methods to harness renewable energy.', 'renewable_energy.pdf', 10],
+                    ['Smart Agriculture', 'Leveraging IoT and AI for efficient farming.', 'smart_agriculture.docx', 25],
+                    ['Recycling Incentives Program', 'A proposal to encourage recycling through rewards.', null, 15],
+                    ['Urban Green Spaces', 'Designing more parks and green areas in urban centers.', 'urban_green_spaces.jpg', 30],
+                ];
+                ideas.forEach(([title, description, attachment, votes]) => {
+                    db.run(`
+                        INSERT INTO ideas (title, description, attachment, votes)
+                        VALUES (?, ?, ?, ?)`,
+                        [title, description, attachment, votes],
+                        (err) => {
+                            if (err) console.error('Error inserting initial ideas', err.message);
+                        }
+                    );
+                });
             }
         });
     }
 });
 
-// Routes
+// Routes for user authentication
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     db.get(
@@ -68,27 +102,28 @@ app.post('/signup', (req, res) => {
     );
 });
 
-app.put('/update-user', (req, res) => {
-    const { id, email, contact } = req.body;
+// Routes for ideas
+app.get('/ideas', (req, res) => {
+    db.all('SELECT * FROM ideas', [], (err, rows) => {
+        if (err) {
+            res.status(500).send('Error fetching ideas');
+        } else {
+            res.json(rows);
+        }
+    });
+});
 
-    if (!id || !email || !contact) {
-        return res.status(400).send('ID, email, and contact are required');
-    }
-
+app.post('/ideas', (req, res) => {
+    const { title, description, attachment } = req.body;
     db.run(
-        'UPDATE users SET email = ?, contact = ? WHERE id = ?',
-        [email, contact, id],
+        `INSERT INTO ideas (title, description, attachment) VALUES (?, ?, ?)`,
+        [title, description, attachment],
         function (err) {
             if (err) {
-                console.error('Error updating user:', err.message);
-                return res.status(500).send('Error updating user');
+                res.status(500).send('Error adding idea');
+            } else {
+                res.json({ id: this.lastID });
             }
-
-            if (this.changes === 0) {
-                return res.status(404).send('User not found');
-            }
-
-            res.send('User updated successfully');
         }
     );
 });

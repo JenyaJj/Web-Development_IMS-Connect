@@ -6,9 +6,16 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const port = 5000;
 
-app.use(cors());
-app.use(bodyParser.json());
-
+app.use(cors({
+    origin: 'https://ims-connect-app.vercel.app', // замените на URL вашего клиента
+    credentials: true
+  }));
+  app.use(bodyParser.json());
+  
+  // Обработчик для корневого маршрута
+  app.get('/', (req, res) => {
+      res.send('Server is running');
+  });
 
 // Database setup
 const db = new sqlite3.Database('./users.db', (err) => {

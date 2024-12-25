@@ -20,6 +20,9 @@ const corsOptions = {
     credentials: true,
 };
 
+app.use(cors(corsOptions)); // Use the CORS middleware with options
+app.use(bodyParser.json());
+
 // Database setup
 const db = new sqlite3.Database('./users.db', (err) => {
     if (err) {

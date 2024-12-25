@@ -6,8 +6,19 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const port = process.env.PORT || 5000; 
 
-app.use(cors());
-app.use(bodyParser.json());
+// app.use(cors());
+// app.use(bodyParser.json());
+
+// CORS configuration
+const corsOptions = {
+    origin: '*', // Allow all origins, or specify your client URL like 'https://yourclienturl.com'
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    preflightContinue: false,
+    optionsSuccessStatus: 200,
+    // Add the Access-Control-Allow-Private-Network header to the response
+    credentials: true,
+};
 
 // Database setup
 const db = new sqlite3.Database('./users.db', (err) => {

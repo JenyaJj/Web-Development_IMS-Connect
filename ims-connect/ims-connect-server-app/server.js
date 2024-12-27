@@ -114,6 +114,30 @@ app.post('/signup', (req, res) => {
     );
 });
 
+// Route to update user profile
+app.put('/update-user', (req, res) => {
+    const { id, email, contact } = req.body;
+
+    if (!id || !email || !contact) {
+        return res.status(400).send('Missing required fields');
+    }
+
+    db.run(
+        `UPDATE users SET email = ?, contact = ? WHERE id = ?`,
+        [email, contact, id],
+        function (err) {
+            if (err) {
+                console.error('Error updating user:', err.message);
+                res.status(500).send('Error updating user');
+            } else if (this.changes === 0) {
+                res.status(404).send('User not found');
+            } else {
+                res.send('User updated successfully');
+            }
+        }
+    );
+});
+
 // Routes for ideas
 app.get('/ideas', (req, res) => {
     db.all('SELECT * FROM ideas', [], (err, rows) => {

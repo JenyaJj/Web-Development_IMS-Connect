@@ -31,6 +31,7 @@ Below are the login credentials for each role:
 
 These login credentials will give you access to the application based on the assigned role, and the system will show you different views and permissions depending on whether you are a **User**, **Manager**, or **Admin**.
 
+# System Requirements and Local Installation
 ## Requirements
 
 Before starting, ensure that you have the following installed on your machine:

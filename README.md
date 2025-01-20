@@ -1,6 +1,13 @@
 # Web-Development-IMS-Connect
 IMS Connect Application is a React-based web application designed to streamline idea management processes, improve collaboration, and foster innovation within organizations. The application consists of a React-based client and a Node.js backend with an SQLite3 database.
 
+## Deployment
+
+The IMS Connect application is deployed and accessible online:
+
+- **Backend**: [https://ims-connect-server.onrender.com/](https://ims-connect-server.onrender.com/) (Hosted on Render)
+- **Frontend**: [https://magnificent-sunflower-aa0711.netlify.app/](https://magnificent-sunflower-aa0711.netlify.app/) (Hosted on Netlify)
+
 ## Requirements
 
 Before starting, ensure that you have the following installed on your machine:
